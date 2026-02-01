@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yay 💜</title>
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e0c3fc, #ffd6e8);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  .box {
+    background: white;
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    z-index: 2;
+  }
+  h1 { color: #8a2be2; font-size: 38px; }
+  p { font-size: 22px; color: #555; }
+  .float {
+    position: absolute;
+    bottom: -30px;
+    animation: floatUp linear infinite;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h1>Yayyy!!! 🎉💜🌹</h1>
+  <p>
+    Tysm 🌹<br>
+    you mean the world to me 💜
+  </p>
+</div>
+
+<script>
+  setInterval(() => {
+    const el = document.createElement("div");
+    el.className = "float";
+    el.innerHTML = Math.random() > 0.5 ? "💜" : "🌹";
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = (20 + Math.random() * 30) + "px";
+    el.style.animationDuration = (5 + Math.random() * 4) + "s";
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 9000);
+  }, 400);
+</script>
+
+</body>
+</html>
