@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Yay Mansi 💜</title>
+
 <style>
   body {
     height: 100vh;
@@ -16,31 +17,34 @@
     text-align: center;
   }
 
-  .container {
-    z-index: 2;
+  .box {
     background: white;
     padding: 30px 35px;
     border-radius: 20px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    max-width: 90%;
+    z-index: 2;
   }
 
   h1 {
-    font-size: 42px;
+    font-size: 38px;
     color: #8a2be2;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
 
   p {
     font-size: 22px;
     color: #555;
-    min-height: 60px;
+    line-height: 1.4;
   }
 
   .float {
     position: absolute;
+    bottom: -30px;
     animation: floatUp linear infinite;
-    opacity: 0.8;
+    opacity: 0.85;
     pointer-events: none;
+    z-index: 1;
   }
 
   @keyframes floatUp {
@@ -59,35 +63,29 @@
 
 <body>
 
-<!-- 🎵 Background Music -->
-<audio autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
-<div class="container">
+<div class="box">
   <h1>Yayyy!!! 🎉💜🌹</h1>
-  <p id="text"></p>
+  <p>
+    Tysm 🌹<br>
+    you mean the world to me,<br>
+    Mansi 💜
+  </p>
 </div>
 
 <script>
-  // ✨ Typewriter effect
-  const message = "Tysm 🌹\nyou mean the world to me, Mansi 💜";
-  let i = 0;
-  const textEl = document.getElementById("text");
-
-  function typeText() {
-    if (i < message.length) {
-      textEl.innerHTML += message[i] === "\n" ? "<br>" : message[i];
-      i++;
-      setTimeout(typeText, 70);
-    }
-  }
-  typeText();
-
-  // 💜🌹 Floating hearts & roses
+  // 💜🌹 Floating hearts & roses (no sound)
   setInterval(() => {
     const el = document.createElement("div");
     el.className = "float";
     el.innerHTML = Math.random() > 0.5 ? "💜" : "🌹";
     el.style.left = Math.random() * 100 + "vw";
-    el.style.bottom =
+    el.style.fontSize = (20 + Math.random() * 30) + "px";
+    el.style.animationDuration = (5 + Math.random() * 4) + "s";
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 9000);
+  }, 400);
+</script>
+
+</body>
+</html>
