@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Mansi 💜</title>
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd6e8, #e0c3fc);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+  }
+
+  .box {
+    text-align: center;
+    background: white;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    z-index: 2;
+  }
+
+  h1 {
+    color: #8a2be2;
+    margin-bottom: 20px;
+  }
+
+  button {
+    padding: 14px 26px;
+    margin: 12px;
+    font-size: 20px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+  }
+
+  #yes {
+    background: #8a2be2;
+    color: white;
+  }
+
+  #no {
+    background: #ddd;
+    position: absolute;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 24px;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.8;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-120vh); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h1>Mansi 🌹💜<br>Will you be my Valentine?</h1>
+  <button id="yes" onclick="yesClicked()">Yes 😍</button>
+  <button id="no">No 🙄</button>
+</div>
+
+<script>
+  // Floating hearts & roses
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = Math.random() > 0.5 ? "💜" : "🌹";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "-30px";
+    heart.style.fontSize = (20 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }, 400);
+
+  // No button runs away 😈
+  const noBtn = document.getElementById("no");
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+
+  function yesClicked() {
+    window.location.href = "yay.html";
+  }
+</script>
+
+</body>
+  </html>
